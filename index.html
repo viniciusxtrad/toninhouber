@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -70,15 +69,25 @@
       border-radius: 12px;
       margin-top: 20px;
       margin-bottom: 20px;
+      overflow: hidden;
     }
 
-    /* Imagem Hero no topo */
+    /* CORREÇÃO: Imagem Hero no topo - agora responsiva */
+    .hero-image-container {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      background: #000;
+    }
+
     .hero-image {
       width: 100%;
+      height: auto;
       max-height: 400px;
       object-fit: cover;
       display: block;
-      border-radius: 12px 12px 0 0;
+      object-position: center;
     }
 
     .hero {
@@ -100,6 +109,7 @@
       background: linear-gradient(to right, var(--cyber-blue), var(--cyber-pink));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
     }
 
@@ -249,6 +259,7 @@
       background: linear-gradient(to right, var(--cyber-blue), var(--cyber-pink));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .diferencial-title {
@@ -335,6 +346,7 @@
       background: linear-gradient(to right, var(--cyber-pink), var(--cyber-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 30px;
     }
 
@@ -360,6 +372,7 @@
       background: linear-gradient(to right, var(--cyber-pink), var(--cyber-blue));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .cta-final p {
@@ -441,26 +454,56 @@
       color: var(--cyber-blue);
     }
 
+    /* MEDIA QUERIES MOBILE */
     @media (max-width: 768px) {
+      .wrapper {
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .hero-image-container {
+        border-radius: 0;
+      }
+
+      .hero-image {
+        max-height: 250px;
+        min-height: 200px;
+      }
+
+      .hero {
+        padding: 60px 20px 50px;
+      }
+
       .hero h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        line-height: 1.2;
       }
 
       .hero p {
-        font-size: 1.1em;
+        font-size: 1em;
+        margin-bottom: 30px;
       }
 
       .section-title {
-        font-size: 1.8em;
+        font-size: 1.6em;
       }
 
       .cta-button, .cta-button-white {
-        font-size: 1.1em;
-        padding: 16px 36px;
+        font-size: 1em;
+        padding: 16px 30px;
       }
 
       .section {
         padding: 50px 20px;
+      }
+
+      .destinos-grid,
+      .diferenciais-grid,
+      .tipos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
 
       .whatsapp-float {
@@ -471,16 +514,47 @@
         right: 20px;
       }
 
+      .diferencial-icon,
+      .tipo-icon {
+        font-size: 2.8em;
+      }
+
+      .sobre-icon {
+        font-size: 3.5em;
+      }
+
+      .cta-final h2 {
+        font-size: 1.8em;
+      }
+
+      .cta-final p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.5em;
+      }
+
       .hero-image {
-        max-height: 250px;
+        max-height: 200px;
+      }
+
+      .destino-card,
+      .diferencial-card,
+      .tipo-card {
+        padding: 25px 15px;
       }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <!-- Imagem Hero no topo (mesma das meta tags) -->
-    <img class="hero-image" src="https://viniciusxtrad.github.io/toninhouber/cap672.jpg" alt="TERRA CAR Premium - Transporte de luxo no Paraná" />
+    <!-- CORREÇÃO: Container da imagem hero -->
+    <div class="hero-image-container">
+      <img class="hero-image" src="https://viniciusxtrad.github.io/toninhouber/cap672.jpg" alt="TERRA CAR Premium - Transporte de luxo no Paraná" loading="eager" />
+    </div>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -569,7 +643,7 @@
         <div class="tipo-card">
           <div class="tipo-icon">✈️</div>
           <div class="tipo-title">Aeroportos</div>
-          <div class="tipo-text"> Maringá</div>
+          <div class="tipo-text">Maringá</div>
         </div>
 
         <div class="tipo-card">
